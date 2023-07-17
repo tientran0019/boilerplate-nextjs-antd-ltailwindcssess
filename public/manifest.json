@@ -1,7 +1,7 @@
 {
 	"name": "Boilerplate",
 	"short_name": "boilerplate-nextjs-antd-tailwindcss",
-	"description": "A boilerplate for Reactjs app using nextjs, redux, redux-thunk, antd, less",
+	"description": "A boilerplate for Reactjs app using nextjs, redux, redux-thunk, antd, tailwindcss",
 	"lang": "en-EN",
 	"start_url": "/",
 	"display": "standalone",

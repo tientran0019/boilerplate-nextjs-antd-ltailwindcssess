@@ -1,7 +1,7 @@
-# Boilerplate nextjs antd tailwind
-A boilerplate for Reactjs app using nextjs, redux, antd, tailwind.
+# Boilerplate nextjs antd tailwindcss
+A boilerplate for Reactjs app using nextjs, redux, antd, tailwindcss.
 
-View the [Demo](https://boilerplate-nextjs-antd-tailwind.vercel.app/)
+View the [Demo](https://boilerplate-nextjs-antd-tailwindcss.vercel.app/)
 
 ## Features
 This boilerplate is updated with:
@@ -9,7 +9,7 @@ This boilerplate is updated with:
 - [React 18x](https://reactjs.org)
 - [Nextjs 13x](https://nextjs.org/)
 - [Antd 5x](https://ant.design/)
-- [Tailwind 3x](https://tailwindcss.com/) - SCSS/CSS Module
+- [Tailwindcss 3x](https://tailwindcss.com/) - SCSS/CSS Module
 - Redux
 - Eslint
 

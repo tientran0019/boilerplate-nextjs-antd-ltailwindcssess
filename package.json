@@ -1,7 +1,22 @@
 {
-  "name": "antd-demo",
+  "name": "boilerplate-nextjs-antd-tailwindcss",
   "version": "0.1.0",
-  "private": true,
+  "description": "A boilerplate for Reactjs app using nextjs, redux, redux-thunk, antd, tailwindcss",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tientran0019/boilerplate-nextjs-antd-tailwindcss.git"
+  },
+  "author": "Tien Tran <tientran0019@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "reactjs",
+    "boilerplate",
+    "redux",
+    "nextjs",
+    "antd",
+    "tailwindcss"
+  ],
   "scripts": {
     "clean": "rimraf .next/ out/",
     "dev": "env-cmd next",
