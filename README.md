@@ -2,7 +2,6 @@
 A boilerplate for Reactjs app using nextjs, redux, antd, tailwindcss.
 
 View the [Demo](https://boilerplate-nextjs-antd-tailwindcss.vercel.app/)
-The Demo is using the template of [Float UI](https://floatui.com/)
 
 ## Features
 This boilerplate is updated with:
@@ -13,10 +12,11 @@ This boilerplate is updated with:
 - [Tailwind CSS 3x](https://tailwindcss.com/) - SCSS/CSS Module
 - Redux
 - Eslint
+- The Demo is using the template of [Float UI](https://floatui.com/)
 
 ## Getting Started
 
-1. Check if your [Node.js](https://nodejs.org/) version is >= 10.13.
+1. Check if your [Node.js](https://nodejs.org/) version is v18.x.
 2. Clone this repository.
 3. Change the package's `name`, `description`, and `repository` fields in `package.json`.
 4. Change the name of your app on `public/manifest.json`.
