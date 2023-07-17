@@ -2,6 +2,7 @@
 A boilerplate for Reactjs app using nextjs, redux, antd, tailwindcss.
 
 View the [Demo](https://boilerplate-nextjs-antd-tailwindcss.vercel.app/)
+The Demo is using the template of [Float UI](https://floatui.com/)
 
 ## Features
 This boilerplate is updated with:
@@ -9,7 +10,7 @@ This boilerplate is updated with:
 - [React 18x](https://reactjs.org)
 - [Nextjs 13x](https://nextjs.org/)
 - [Antd 5x](https://ant.design/)
-- [Tailwindcss 3x](https://tailwindcss.com/) - SCSS/CSS Module
+- [Tailwind CSS 3x](https://tailwindcss.com/) - SCSS/CSS Module
 - Redux
 - Eslint
 
@@ -148,3 +149,4 @@ If you find any problems, please [open an issue](https://github.com/tientran0019
 
 ## Author
 Tien Tran <tientran0019@gmail.com>
+
