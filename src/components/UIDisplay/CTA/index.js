@@ -23,10 +23,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const CTA = (props) => {
 	// const { } = props;
 	const topicsList = [
@@ -79,7 +75,5 @@ const CTA = (props) => {
 };
 
 CTA.propTypes = propTypes;
-
-CTA.defaultProps = defaultProps;
 
 export default CTA;

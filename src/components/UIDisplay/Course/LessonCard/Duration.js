@@ -21,10 +21,6 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Duration = (props) => {
 	const { children, className, ...rest } = props;
 
@@ -34,7 +30,5 @@ const Duration = (props) => {
 };
 
 Duration.propTypes = propTypes;
-
-Duration.defaultProps = defaultProps;
 
 export default Duration;

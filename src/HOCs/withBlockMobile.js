@@ -19,10 +19,6 @@ const propTypes = {
 	deviceInfo: PropTypes.object,
 };
 
-const defaultProps = {
-	deviceInfo: null,
-};
-
 const withBlockMobile = (Component, options = {}) => {
 	// eslint-disable-next-line func-names
 	return function (props) {
@@ -78,7 +74,5 @@ const withBlockMobile = (Component, options = {}) => {
 };
 
 withBlockMobile.propTypes = propTypes;
-
-withBlockMobile.defaultProps = defaultProps;
 
 export default withBlockMobile;

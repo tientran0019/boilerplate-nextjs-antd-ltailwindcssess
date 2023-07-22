@@ -23,10 +23,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Loading = (props) => {
 	// const { } = props;
 
@@ -50,7 +46,5 @@ const Loading = (props) => {
 };
 
 Loading.propTypes = propTypes;
-
-Loading.defaultProps = defaultProps;
 
 export default Loading;

@@ -22,10 +22,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Newsletter = (props) => {
 	// const { } = props;
 
@@ -58,7 +54,5 @@ const Newsletter = (props) => {
 };
 
 Newsletter.propTypes = propTypes;
-
-Newsletter.defaultProps = defaultProps;
 
 export default Newsletter;

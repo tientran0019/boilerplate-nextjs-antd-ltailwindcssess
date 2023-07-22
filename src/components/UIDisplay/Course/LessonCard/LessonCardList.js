@@ -27,12 +27,8 @@ const propTypes = {
 	idx: PropTypes.number.isRequired,
 };
 
-const defaultProps = {
-	item: {},
-	idx: 0,
-};
 const LessonCardList = (props) => {
-	const { idx, item: { thumbnail, title, description, duration, slug } } = props;
+	const { idx, item: { thumbnail, title, description, duration, slug } = {} } = props;
 
 	return (
 		<div className="gap-x-6 sm:flex">
@@ -73,7 +69,5 @@ const LessonCardList = (props) => {
 };
 
 LessonCardList.propTypes = propTypes;
-
-LessonCardList.defaultProps = defaultProps;
 
 export default LessonCardList;

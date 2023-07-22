@@ -25,12 +25,8 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
-const defaultProps = {
-	items: {},
-};
-
 const PlayList = (props) => {
-	const { items, className, ...rest } = props;
+	const { items = {}, className, ...rest } = props;
 	const [isOpen, setOpen] = React.useState(false);
 
 	const { slug } = useParams();
@@ -72,7 +68,5 @@ const PlayList = (props) => {
 };
 
 PlayList.propTypes = propTypes;
-
-PlayList.defaultProps = defaultProps;
 
 export default PlayList;

@@ -21,10 +21,6 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const SubTitle = (props) => {
 	const { children, className, ...rest } = props;
 
@@ -34,7 +30,5 @@ const SubTitle = (props) => {
 };
 
 SubTitle.propTypes = propTypes;
-
-SubTitle.defaultProps = defaultProps;
 
 export default SubTitle;

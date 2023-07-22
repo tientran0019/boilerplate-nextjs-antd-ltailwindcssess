@@ -27,10 +27,6 @@ const propTypes = {
 	params: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	params: {},
-};
-
 // export const dynamicParams = true;
 // export const dynamic = 'auto';
 // export const revalidate = false;
@@ -61,7 +57,5 @@ const Lesson = async (props) => {
 };
 
 Lesson.propTypes = propTypes;
-
-Lesson.defaultProps = defaultProps;
 
 export default Lesson;

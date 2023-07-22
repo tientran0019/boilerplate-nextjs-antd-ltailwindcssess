@@ -22,12 +22,8 @@ const propTypes = {
 	onClose: PropTypes.func,
 };
 
-const defaultProps = {
-	onClose: f => f,
-};
-
 const HeroIntroVideo = (props) => {
-	const { onClose } = props;
+	const { onClose = f => f } = props;
 
 	return (
 		<div className="fixed inset-0 z-30 w-full h-full flex items-center justify-center">
@@ -55,7 +51,5 @@ const HeroIntroVideo = (props) => {
 };
 
 HeroIntroVideo.propTypes = propTypes;
-
-HeroIntroVideo.defaultProps = defaultProps;
 
 export default HeroIntroVideo;

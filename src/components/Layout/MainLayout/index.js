@@ -24,10 +24,6 @@ const propTypes = {
 	children: PropTypes.any.isRequired,
 };
 
-const defaultProps = {
-	children: {},
-};
-
 const inter = Inter({ subsets: ['latin'] });
 
 const RootLayout = (props) => {
@@ -47,7 +43,5 @@ const RootLayout = (props) => {
 };
 
 RootLayout.propTypes = propTypes;
-
-RootLayout.defaultProps = defaultProps;
 
 export default RootLayout;

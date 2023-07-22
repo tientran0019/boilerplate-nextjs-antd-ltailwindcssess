@@ -27,10 +27,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Hero = (props) => {
 	// const { } = props;
 	const [isVideoPoppedUp, setVideoPopUp] = useState(false);
@@ -90,7 +86,5 @@ const Hero = (props) => {
 };
 
 Hero.propTypes = propTypes;
-
-Hero.defaultProps = defaultProps;
 
 export default Hero;

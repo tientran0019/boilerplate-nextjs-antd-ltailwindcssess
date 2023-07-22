@@ -23,10 +23,6 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const DarkModeHandler = (props) => {
 	const { className } = props;
 
@@ -60,7 +56,5 @@ const DarkModeHandler = (props) => {
 };
 
 DarkModeHandler.propTypes = propTypes;
-
-DarkModeHandler.defaultProps = defaultProps;
 
 export default DarkModeHandler;

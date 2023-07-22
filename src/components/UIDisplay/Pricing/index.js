@@ -24,10 +24,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Pricing = (props) => {
 	// const { } = props;
 
@@ -66,7 +62,5 @@ const Pricing = (props) => {
 };
 
 Pricing.propTypes = propTypes;
-
-Pricing.defaultProps = defaultProps;
 
 export default Pricing;

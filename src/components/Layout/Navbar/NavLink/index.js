@@ -24,10 +24,6 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const NavLink = (props) => {
 	const { children, href, className, ...rest } = props;
 
@@ -39,7 +35,5 @@ const NavLink = (props) => {
 };
 
 NavLink.propTypes = propTypes;
-
-NavLink.defaultProps = defaultProps;
 
 export default NavLink;

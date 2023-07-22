@@ -6,13 +6,13 @@ View the [Demo](https://boilerplate-nextjs-antd-tailwindcss.vercel.app/)
 ## Features
 This boilerplate is updated with:
 
-- [React 18x](https://reactjs.org)
-- [Nextjs 13x](https://nextjs.org/)
-- [Antd 5x](https://ant.design/)
-- [Tailwind CSS 3x](https://tailwindcss.com/) - SCSS/CSS Module
-- Redux
-- Eslint
-- The Demo is using the template of [Float UI](https://floatui.com/)
+- [x] [React 18x](https://reactjs.org)
+- [x] [Nextjs 13x](https://nextjs.org/)
+- [x] [Antd 5x](https://ant.design/)
+- [x] [Tailwind CSS 3x](https://tailwindcss.com/) - SCSS/CSS Module
+- [ ] [Redux](https://redux.js.org/)
+- [x] [Eslint](https://eslint.org/)
+- [x] The Demo is using the template of [Float UI](https://floatui.com/)
 
 ## Getting Started
 
@@ -62,6 +62,7 @@ Reference in the file `.env-example`.
 [Learn more](https://nextjs.org/docs/basic-features/environment-variables)
 
 
+## Stylesheet
 #### Adding a Global Stylesheet
 
 Create a `app/layout.js` file if not already present. Then, `import` the `styles.css` file.

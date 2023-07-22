@@ -26,10 +26,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Home = (props) => {
 	// const { } = props;
 
@@ -45,7 +41,5 @@ const Home = (props) => {
 };
 
 Home.propTypes = propTypes;
-
-Home.defaultProps = defaultProps;
 
 export default Home;

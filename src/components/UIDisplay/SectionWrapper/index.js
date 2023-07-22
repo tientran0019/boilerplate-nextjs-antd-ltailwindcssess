@@ -21,10 +21,6 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
-const defaultProps = {
-	// children: {},
-};
-
 const SectionWrapper = (props) => {
 	const { children, className, ...rest } = props;
 
@@ -36,7 +32,5 @@ const SectionWrapper = (props) => {
 };
 
 SectionWrapper.propTypes = propTypes;
-
-SectionWrapper.defaultProps = defaultProps;
 
 export default SectionWrapper;

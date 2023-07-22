@@ -24,18 +24,16 @@ const Provider = ({ children }) => {
 	const { theme: themeName } = useTheme();
 
 	const css = extractStyle((node) => (
-		<ThemeProvider defaultTheme="dark" attribute="class">
-			<ConfigProvider
-				theme={{
-					algorithm: themeName === 'light' ? antdTheme.defaultAlgorithm : antdTheme.darkAlgorithm,
-					...theme,
-				}}
-			>
-				<StyleProvider hashPriority="high">
-					{node}
-				</StyleProvider>
-			</ConfigProvider>
-		</ThemeProvider>
+		<ConfigProvider
+			theme={{
+				algorithm: themeName === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+				...theme,
+			}}
+		>
+			<StyleProvider hashPriority="high">
+				{node}
+			</StyleProvider>
+		</ConfigProvider>
 	));
 
 	useServerInsertedHTML(() => {
@@ -46,19 +44,18 @@ const Provider = ({ children }) => {
 	});
 
 	return (
-		<ThemeProvider defaultTheme="dark" attribute="class">
-			<ConfigProvider
-				theme={{
-					algorithm: themeName === 'light' ? antdTheme.defaultAlgorithm : antdTheme.darkAlgorithm,
-					...theme,
-				}}
-			>
-				<StyleProvider hashPriority="high">
-					{children}
-				</StyleProvider>
-			</ConfigProvider>
-		</ThemeProvider>
+		<ConfigProvider
+			theme={{
+				algorithm: themeName === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+				...theme,
+			}}
+		>
+			<StyleProvider hashPriority="high">
+				{children}
+			</StyleProvider>
+		</ConfigProvider>
 	);
 };
 
-export default Provider;
+// eslint-disable-next-line import/no-anonymous-default-export, react/function-component-definition
+export default ({ children }) => (<ThemeProvider defaultTheme="dark" attribute="class"><Provider>{children}</Provider></ThemeProvider>);

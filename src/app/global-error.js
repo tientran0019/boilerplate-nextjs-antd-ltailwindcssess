@@ -27,13 +27,8 @@ const propTypes = {
 	error: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	reset: f => f,
-	error: {},
-};
-
 const GlobalError = (props) => {
-	const { error, reset } = props;
+	const { error, reset = f => f } = props;
 	const router = useRouter();
 
 	React.useEffect(() => {
@@ -76,7 +71,5 @@ const GlobalError = (props) => {
 };
 
 GlobalError.propTypes = propTypes;
-
-GlobalError.defaultProps = defaultProps;
 
 export default GlobalError;

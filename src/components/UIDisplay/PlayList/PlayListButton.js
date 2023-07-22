@@ -23,10 +23,6 @@ const propTypes = {
 	isOpen: PropTypes.bool,
 };
 
-const defaultProps = {
-	// className: {},
-};
-
 const PlayListButton = (props) => {
 	const { className, isOpen, ...rest } = props;
 
@@ -55,7 +51,5 @@ const PlayListButton = (props) => {
 };
 
 PlayListButton.propTypes = propTypes;
-
-PlayListButton.defaultProps = defaultProps;
 
 export default PlayListButton;

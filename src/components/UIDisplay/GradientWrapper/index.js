@@ -21,10 +21,6 @@ const propTypes = {
 	children: PropTypes.any,
 };
 
-const defaultProps = {
-	className: '',
-};
-
 const GradientWrapper = (props) => {
 	const { children, className, ...rest } = props;
 
@@ -48,7 +44,5 @@ const GradientWrapper = (props) => {
 };
 
 GradientWrapper.propTypes = propTypes;
-
-GradientWrapper.defaultProps = defaultProps;
 
 export default GradientWrapper;

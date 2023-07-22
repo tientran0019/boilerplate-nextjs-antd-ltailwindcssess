@@ -28,11 +28,6 @@ const propTypes = {
 	options: PropTypes.object,
 };
 
-const defaultProps = {
-	src: '',
-	options: {},
-};
-
 // Some resources to help you understand more about the video player
 // https://github.com/sampotts/plyr
 // https://github.com/chintan9/plyr-react
@@ -62,7 +57,5 @@ const VideoPlayer = (props) => {
 };
 
 VideoPlayer.propTypes = propTypes;
-
-VideoPlayer.defaultProps = defaultProps;
 
 export default VideoPlayer;

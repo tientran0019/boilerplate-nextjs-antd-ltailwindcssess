@@ -18,10 +18,6 @@ const propTypes = {
 	children: PropTypes.any.isRequired,
 };
 
-const defaultProps = {
-	children: {},
-};
-
 export const metadata = {
 	title: 'Boilerplate',
 	description: 'A boilerplate for Reactjs app using nextjs, redux, redux-thunk, antd, tailwind',
@@ -38,7 +34,5 @@ const RootLayout = (props) => {
 };
 
 RootLayout.propTypes = propTypes;
-
-RootLayout.defaultProps = defaultProps;
 
 export default RootLayout;

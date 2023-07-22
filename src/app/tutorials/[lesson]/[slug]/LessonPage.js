@@ -27,12 +27,8 @@ const propTypes = {
 	lessonData: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	lessonData: {},
-};
-
 const LessonPage = (props) => {
-	const { lessonData } = props;
+	const { lessonData = {} } = props;
 
 	return (
 		<>
@@ -85,7 +81,5 @@ const LessonPage = (props) => {
 };
 
 LessonPage.propTypes = propTypes;
-
-LessonPage.defaultProps = defaultProps;
 
 export default LessonPage;

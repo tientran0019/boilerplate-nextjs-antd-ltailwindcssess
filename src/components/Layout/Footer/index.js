@@ -23,10 +23,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const navigation = [
 	{ name: 'Features', href: '/#features' },
 	{ name: 'Lessons', href: '/tutorials/cs50' },
@@ -60,7 +56,5 @@ const Footer = (props) => {
 };
 
 Footer.propTypes = propTypes;
-
-Footer.defaultProps = defaultProps;
 
 export default Footer;

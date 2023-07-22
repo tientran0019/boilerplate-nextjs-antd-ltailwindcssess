@@ -20,10 +20,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Logo = (props) => {
 	// const { } = props;
 
@@ -37,7 +33,5 @@ const Logo = (props) => {
 };
 
 Logo.propTypes = propTypes;
-
-Logo.defaultProps = defaultProps;
 
 export default Logo;

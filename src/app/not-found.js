@@ -12,7 +12,7 @@
 'use client';
 
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import { Button } from 'antd';
 
@@ -22,13 +22,8 @@ import Link from 'next/link';
 // import classes from './style.module.scss
 
 const propTypes = {
-	reset: PropTypes.func.isRequired,
-	error: PropTypes.object.isRequired,
-};
-
-const defaultProps = {
-	reset: f => f,
-	error: {},
+	// reset: PropTypes.func.isRequired,
+	// error: PropTypes.object.isRequired,
 };
 
 const NotFound = (props) => {
@@ -68,7 +63,5 @@ const NotFound = (props) => {
 };
 
 NotFound.propTypes = propTypes;
-
-NotFound.defaultProps = defaultProps;
 
 export default NotFound;

@@ -22,10 +22,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const features = [
 	{
 		icon: (
@@ -124,7 +120,5 @@ const Features = (props) => {
 };
 
 Features.propTypes = propTypes;
-
-Features.defaultProps = defaultProps;
 
 export default Features;

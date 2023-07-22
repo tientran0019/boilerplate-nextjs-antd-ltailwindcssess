@@ -25,13 +25,8 @@ const propTypes = {
 	idx: PropTypes.number.isRequired,
 };
 
-const defaultProps = {
-	item: {},
-	idx: 0,
-};
-
 const LessonCardGrid = (props) => {
-	const { idx, item: { thumbnail, title, description, duration, slug } } = props;
+	const { idx, item: { thumbnail, title, description, duration, slug } = {} } = props;
 
 	return (
 		<div className="space-y-2 sm:max-w-sm">
@@ -55,7 +50,5 @@ const LessonCardGrid = (props) => {
 };
 
 LessonCardGrid.propTypes = propTypes;
-
-LessonCardGrid.defaultProps = defaultProps;
 
 export default LessonCardGrid;

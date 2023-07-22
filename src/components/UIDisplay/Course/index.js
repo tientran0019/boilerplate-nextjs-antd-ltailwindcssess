@@ -28,10 +28,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Course = (props) => {
 	// const { } = props;
 
@@ -69,7 +65,5 @@ const Course = (props) => {
 };
 
 Course.propTypes = propTypes;
-
-Course.defaultProps = defaultProps;
 
 export default Course;

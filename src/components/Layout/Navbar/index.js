@@ -27,10 +27,6 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const defaultProps = {
-	// classes: {},
-};
-
 const Navbar = (props) => {
 	// const { } = props;
 	const menuBtnEl = useRef();
@@ -141,7 +137,5 @@ const Navbar = (props) => {
 };
 
 Navbar.propTypes = propTypes;
-
-Navbar.defaultProps = defaultProps;
 
 export default Navbar;
