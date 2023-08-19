@@ -17,7 +17,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Brand from 'src/components/Layout/Logo';
-import DarkModeHandler from 'src/components/UIControl/DarkModeHandler';
+import DarkModeHandler from 'src/components/UIControl/ThemeToggle';
 
 import NavLink from './NavLink';
 

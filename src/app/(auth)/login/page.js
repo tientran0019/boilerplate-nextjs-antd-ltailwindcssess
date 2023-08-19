@@ -66,7 +66,7 @@ const LoginPage = (props) => {
 							className="w-full mt-2 bg-white dark:bg-gray-800 dark:focus:bg-gray-700 dark:text-gray-300 focus:border-gray-800"
 						/>
 					</div>
-					<Button className="w-full text-white bg-gray-800 dark:bg-sky-500 hover:bg-gray-700 dark:hover:bg-sky-600 ring-offset-2 ring-gray-800 dark:ring-sky-500 focus:ring shadow rounded-lg">
+					<Button type="primary" className="w-full">
 						Sign in
 					</Button>
 				</form>
@@ -128,7 +128,7 @@ const LoginPage = (props) => {
 					</Link>
 				</div>
 			</div>
-		</main >
+		</main>
 	);
 };
 

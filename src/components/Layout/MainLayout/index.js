@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 
 import { Inter } from 'next/font/google';
 
-import Provider from 'src/theme/Provider';
+import Provider from 'src/theme/ThemeProvider';
 import Footer from 'src/components/Layout/Footer';
 import Navbar from 'src/components/Layout/Navbar';
 

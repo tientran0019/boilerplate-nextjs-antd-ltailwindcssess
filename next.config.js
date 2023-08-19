@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	// transpilePackages: ['antd'],
 	reactStrictMode: true,
+	transpilePackages: ['antd'],
+	swcMinify: true,
+	experimental: {
+		// Required:
+		appDir: true,
+	},
 	eslint: {
 		// Warning: This allows production builds to successfully complete even if
 		// your project has ESLint errors.
