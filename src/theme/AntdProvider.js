@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useServerInsertedHTML } from 'next/navigation';
 
@@ -11,7 +11,7 @@ if (!process.browser) React.useLayoutEffect = React.useEffect;
 
 // eslint-disable-next-line react/prop-types
 export const AntdProvider = ({ children }) => {
-	const [cache] = useState(() => createCache());
+	const cache = createCache();
 
 	const render = <>{children}</>;
 
@@ -19,15 +19,15 @@ export const AntdProvider = ({ children }) => {
 		return (
 			<script
 				dangerouslySetInnerHTML={{
-					__html: `</script>${extractStyle(cache)}<script>`,
+					__html: `<script>${extractStyle(cache)}</script>`,
 				}}
 			/>
 		);
 	});
 
-	if (typeof window !== 'undefined') {
-		return render;
-	}
+	// if (typeof window !== 'undefined') {
+	// 	return render;
+	// }
 
 	return (
 		<StyleProvider hashPriority="high" cache={cache}>

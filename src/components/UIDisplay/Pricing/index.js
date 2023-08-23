@@ -51,7 +51,7 @@ const Pricing = (props) => {
 						<p className="max-w-sm text-gray-600 dark:text-gray-300">
 							Get lifetime access to the course and all the features, and the future updates.
 						</p>
-						<Button className="block w-full text-white bg-blue-600 dark:bg-sky-500 hover:bg-blue-500 dark:hover:bg-sky-600 ring-offset-2 ring-blue-600 dark:ring-sky-500 focus:ring shadow">
+						<Button className="block w-full" type="primary">
 							Get Started
 						</Button>
 					</div>

@@ -45,7 +45,7 @@ const Newsletter = (props) => {
 						className="w-full pl-12 pr-3 bg-white dark:bg-gray-800 dark:focus:bg-gray-700 dark:text-gray-300 focus:border-gray-800"
 					/>
 				</div>
-				<Button className="block w-auto text-white bg-blue-600 dark:bg-sky-500 hover:bg-blue-500 dark:hover:bg-sky-600 ring-offset-2 ring-blue-600 dark:ring-sky-500 focus:ring shadow rounded-lg">
+				<Button className="block w-auto" type="primary">
 					Subscribe
 				</Button>
 			</form>
