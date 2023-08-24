@@ -16,7 +16,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import Link from 'next/link';
-import { Button, Input } from 'antd';
+import { Button, Divider, Input } from 'antd';
 
 import Brand from 'src/components/Layout/Logo';
 
@@ -30,7 +30,14 @@ const LoginPage = (props) => {
 	// const { } = props;
 
 	return (
-		<main className="bg-gray-50 dark:bg-gray-900 w-full h-screen flex flex-col items-center justify-center px-4">
+		<div className="bg-gray-50 dark:bg-gray-900 w-full min-h-screen flex flex-col items-center justify-center px-4 pt-10 backgroundImage">
+			<div
+				className="blur-[138px] absolute inset-0 m-auto max-w-7xl h-[230px]"
+				style={{
+					background:
+						'linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)',
+				}}
+			/>
 			<div className="max-w-sm w-full text-gray-600 dark:text-gray-300">
 				<div className="text-center">
 					<Brand className="mx-auto w-48 text-gray-800 dark:text-white" />
@@ -71,8 +78,7 @@ const LoginPage = (props) => {
 					</Button>
 				</form>
 				<div className="relative my-10">
-					<span className="block w-full h-px bg-gray-300" />
-					<p className="inline-block w-fit text-sm bg-gray-50 dark:bg-gray-900 px-2 absolute -top-2 inset-x-0 mx-auto">Or continue with</p>
+					<Divider plain>Or continue with</Divider>
 				</div>
 				<div className="space-y-4 text-sm font-medium">
 					<button type="button" className="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg hover:bg-gray-50 duration-150 active:bg-gray-100">
@@ -128,7 +134,7 @@ const LoginPage = (props) => {
 					</Link>
 				</div>
 			</div>
-		</main>
+		</div>
 	);
 };
 

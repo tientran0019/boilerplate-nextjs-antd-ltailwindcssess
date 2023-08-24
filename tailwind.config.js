@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	important: true,
@@ -17,7 +18,6 @@ module.exports = {
 		},
 	},
 	plugins: [
-		require('@tailwindcss/line-clamp'),
 		require('@tailwindcss/typography'),
 	],
 };
