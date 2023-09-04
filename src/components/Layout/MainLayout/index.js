@@ -14,9 +14,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Inter } from 'next/font/google';
-
-import Provider from 'src/theme/ThemeProvider';
 import Footer from 'src/components/Layout/Footer';
 import Navbar from 'src/components/Layout/Navbar';
 
@@ -24,21 +21,15 @@ const propTypes = {
 	children: PropTypes.any.isRequired,
 };
 
-const inter = Inter({ subsets: ['latin'] });
-
 const RootLayout = (props) => {
 	const { children } = props;
 
 	return (
-		<html lang="en" className="scroll-smooth dark">
-			<body suppressHydrationWarning className={inter.className + ' dark:bg-gray-900'}>
-				<Provider>
-					<Navbar />
-					<main>{children}</main>
-					<Footer />
-				</Provider>
-			</body>
-		</html>
+		<>
+			<Navbar />
+			<main>{children}</main>
+			<Footer />
+		</>
 	);
 };
 

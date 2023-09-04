@@ -23,7 +23,7 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
-const DarkModeHandler = (props) => {
+const ThemeToggle = (props) => {
 	const { className } = props;
 
 	const { theme, setTheme } = useTheme();
@@ -55,6 +55,6 @@ const DarkModeHandler = (props) => {
 	);
 };
 
-DarkModeHandler.propTypes = propTypes;
+ThemeToggle.propTypes = propTypes;
 
-export default DarkModeHandler;
+export default ThemeToggle;

@@ -1,0 +1,31 @@
+{
+	"Metadata": {
+		"title": "Next.js Bản Mẫu",
+		"desc": "Một bản mãu cho Reactjs app sử dụng nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
+	},
+	"nav": {
+		"home": "Trang chủ"
+	},
+	"theme": {
+		"light": "Sáng",
+		"dark": "Tối"
+	},
+	"ErrorPage": {
+		"title": "Đã xảy ra lỗi!",
+		"description": "<p>Rất tiếc, chúng tôi đã gặp phải lỗi.</p><p>Bạn có thể thử <retry>tải lại trang</retry> bạn đang truy cập.</p>",
+		"btnPrimary": "Thử lại",
+		"btnSecondary": "Hỗ trợ"
+	},
+	"NotFoundPage": {
+		"title": "Không tìm thấy trang",
+		"text": "Xin lỗi, trang bạn đang tìm kiếm không thể tìm thấy hoặc đã bị xóa.",
+		"btnPrimary": "Trở về trang chủ",
+		"btnSecondary": "Hỗ trợ"
+	},
+	"LandingPage": {
+		"Hero": {
+			"title": "Nắm vững các nguyên tắc cơ bản của khoa học máy tính",
+			"text": "Học viện IO là một nền tảng học tập trực tuyến cung cấp các khóa học và dự án tương tác về Khoa học Máy tính cho học sinh trung học và người lớn thuộc mọi thành phần."
+		}
+	}
+}

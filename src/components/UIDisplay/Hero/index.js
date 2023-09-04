@@ -20,6 +20,7 @@ import heroThumbnail from 'public/images/hero-thumbnail.png';
 import GradientWrapper from 'src/components/UIDisplay/GradientWrapper';
 import NavLink from 'src/components/Layout/Navbar/NavLink';
 import HeroIntroVideo from 'src/components/UIDisplay/HeroIntroVideo';
+import { useTranslations } from 'next-intl';
 
 // import classes from './style.module.scss
 
@@ -31,16 +32,18 @@ const Hero = (props) => {
 	// const { } = props;
 	const [isVideoPoppedUp, setVideoPopUp] = useState(false);
 
+	const t = useTranslations('LandingPage.Hero');
+
 	return (
 		<GradientWrapper>
 			<section>
 				<div className="custom-screen items-center gap-12 text-gray-600 flex flex-col sm:justify-center sm:text-center xl:flex-row xl:text-left">
 					<div className="flex-none space-y-5 max-w-4xl xl:max-w-2xl">
 						<h1 className="text-4xl text-white font-extrabold sm:text-6xl">
-							Mastering computer science fundamentals
+							{t('title')}
 						</h1>
 						<p className="text-gray-300 max-w-xl sm:mx-auto xl:mx-0">
-							The IO Academy is an online learning platform that provides interactive courses and projects in Computer Science to high schoolers and adults of all backgrounds.
+							{t('text')}
 						</p>
 						<div className="items-center gap-x-3 font-medium text-sm sm:flex sm:justify-center xl:justify-start">
 							<NavLink

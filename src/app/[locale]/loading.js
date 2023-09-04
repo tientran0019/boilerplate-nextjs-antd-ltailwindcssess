@@ -27,21 +27,19 @@ const Loading = (props) => {
 	// const { } = props;
 
 	return (
-		<main>
-			<div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">
-				<div className="max-w-lg mx-auto space-y-3 text-center">
-					<Spin
-						indicator={<LoadingOutlined
-							style={{
-								fontSize: 24,
-							}}
-							spin
-						/>}
+		<div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">
+			<div className="max-w-lg mx-auto space-y-3 text-center">
+				<Spin
+					indicator={<LoadingOutlined
+						style={{
+							fontSize: 24,
+						}}
+						spin
+					/>}
 
-					/>
-				</div>
+				/>
 			</div>
-		</main>
+		</div>
 	);
 };
 

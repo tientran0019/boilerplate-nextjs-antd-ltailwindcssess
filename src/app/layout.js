@@ -9,28 +9,22 @@
 import 'antd/dist/reset.css';
 import 'src/theme/globals.css';
 
-import React from 'react';
+// import React from 'react';
 import PropTypes from 'prop-types';
-
-import MainLayout from 'src/components/Layout/MainLayout';
 
 const propTypes = {
 	children: PropTypes.any.isRequired,
 };
 
-export const metadata = {
-	title: 'Boilerplate',
-	description: 'A boilerplate for Reactjs app using nextjs, redux, redux-thunk, antd, tailwind',
-};
+// export const metadata = {
+// 	title: 'Boilerplate',
+// 	description: 'A boilerplate for Reactjs app using nextjs, redux, redux-thunk, antd, tailwind',
+// };
 
 const RootLayout = (props) => {
 	const { children } = props;
 
-	return (
-		<MainLayout>
-			{children}
-		</MainLayout>
-	);
+	return children;
 };
 
 RootLayout.propTypes = propTypes;

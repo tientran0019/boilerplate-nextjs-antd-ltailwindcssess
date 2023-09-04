@@ -1,4 +1,14 @@
 /* eslint-disable react/prop-types */
+/* --------------------------------------------------------
+* Author Tien Tran
+* Email tientran0019@gmail.com
+* Phone 0972970075
+*
+* Created: 2023-09-03 23:23:42
+
+* Last updated on: 2023-09-03 23:23:42
+* Last updated by: Tien Tran
+*------------------------------------------------------- */
 
 'use client';
 
@@ -7,7 +17,7 @@ import { useEffect, useState } from 'react';
 import { ConfigProvider, theme } from 'antd';
 import { ThemeProvider as NextThemeProvider, useTheme } from 'next-themes';
 
-// import { defaultLocale, languages } from '@/locale';
+import { defaultLocale, languages } from 'src/locale';
 
 import { AntdProvider } from './AntdProvider';
 
@@ -19,7 +29,7 @@ export const AntdConfigProvider = ({ children, locale }) => {
 
 	return (
 		<ConfigProvider
-			// locale={languages[locale ?? defaultLocale].antd}
+			locale={languages[locale ?? defaultLocale].antd}
 			theme={{
 				algorithm: nowTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
 				...customThemes,
@@ -41,6 +51,7 @@ export default function ThemeProvider(props) {
 
 	if (!mounted) {
 		// use your loading page
+		// return props.children;
 		return <div className="hidden">{props.children}</div>;
 	}
 

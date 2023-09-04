@@ -18,6 +18,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Brand from 'src/components/Layout/Logo';
 import DarkModeHandler from 'src/components/UIControl/ThemeToggle';
+import LocaleToggle from 'src/components/UIControl/LocaleToggle';
 
 import NavLink from './NavLink';
 
@@ -73,6 +74,7 @@ const Navbar = (props) => {
 						</Link>
 						<div className="flex gap-x-3 items-center md:hidden">
 							<DarkModeHandler className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
+							<LocaleToggle className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
 							<button
 								ref={menuBtnEl}
 								type="button"
@@ -116,6 +118,9 @@ const Navbar = (props) => {
 							</li>
 							<li className="hidden md:block">
 								<DarkModeHandler className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
+							</li>
+							<li className="hidden md:block">
+								<LocaleToggle className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
 							</li>
 							<li>
 								<NavLink

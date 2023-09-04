@@ -1,0 +1,31 @@
+{
+	"Metadata": {
+		"title": "Next.js Boilerplate",
+		"desc": "A boilerplate for Reactjs app using nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
+	},
+	"nav": {
+		"home": "Home"
+	},
+	"theme": {
+		"light": "light",
+		"dark": "dark"
+	},
+	"ErrorPage": {
+		"title": "Something went wrong!",
+		"description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+		"btnPrimary": "Try again",
+		"btnSecondary": "Contact support"
+	},
+	"NotFoundPage": {
+		"title": "Page not found",
+		"text": "Sorry, the page you are looking for could not be found or has been removed.",
+		"btnPrimary": "Go to home",
+		"btnSecondary": "Contact support"
+	},
+	"LandingPage": {
+		"Hero": {
+			"title": "Mastering computer science fundamentals",
+			"text": "The IO Academy is an online learning platform that provides interactive courses and projects in Computer Science to high schoolers and adults of all backgrounds."
+		}
+	}
+}

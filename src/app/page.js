@@ -9,37 +9,9 @@
 * Last updated by: Tien Tran
 *------------------------------------------------------- */
 
-'use client';
+import { redirect } from 'next/navigation';
 
-import React from 'react';
-// import PropTypes from 'prop-types';
-
-import Course from 'src/components/UIDisplay/Course';
-import CTA from 'src/components/UIDisplay/CTA';
-import Features from 'src/components/UIDisplay/Features';
-import Hero from 'src/components/UIDisplay/Hero';
-import Pricing from 'src/components/UIDisplay/Pricing';
-
-// import classes from './style.module.scss
-
-const propTypes = {
-	// classes: PropTypes.object.isRequired,
-};
-
-const Home = (props) => {
-	// const { } = props;
-
-	return (
-		<>
-			<Hero />
-			<CTA />
-			<Features />
-			<Course />
-			<Pricing />
-		</>
-	);
-};
-
-Home.propTypes = propTypes;
-
-export default Home;
+// This page only renders when the app is built statically (output: 'export')
+export default function RootPage() {
+	redirect('/en');
+}
