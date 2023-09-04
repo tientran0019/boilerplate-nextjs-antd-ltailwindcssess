@@ -10,10 +10,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-intl/client';
 import { Button } from 'antd';
 import { isMobile } from 'react-device-detect';
-import configs from 'src/constants/configs';
+
+import configs from 'src/constants/urls';
 
 const propTypes = {
 	deviceInfo: PropTypes.object,

@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 
 import { Button } from 'antd';
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-intl/client';
 import { useTranslations } from 'next-intl';
 
 // import classes from './style.module.scss

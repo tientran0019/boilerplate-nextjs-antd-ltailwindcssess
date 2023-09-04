@@ -14,11 +14,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 // import PropTypes from 'prop-types';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from 'next-intl/link';
+import { usePathname } from 'next-intl/client';
 import Brand from 'src/components/Layout/Logo';
-import DarkModeHandler from 'src/components/UIControl/ThemeToggle';
-import LocaleToggle from 'src/components/UIControl/LocaleToggle';
+import DarkModeHandler from 'src/theme/ThemeToggle';
+import LocaleToggle from 'src/locale/LocaleToggle';
 
 import NavLink from './NavLink';
 
@@ -32,6 +32,7 @@ const Navbar = (props) => {
 	// const { } = props;
 	const menuBtnEl = useRef();
 	const [state, setState] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 	const pathname = usePathname();
 
 	// array of all the paths that doesn't need dark navbar
@@ -64,22 +65,33 @@ const Navbar = (props) => {
 		window.onscroll = () => setState(false);
 	}, []);
 
+	useEffect(() => {
+		window.onscroll = () => {
+			if ((document.documentElement.scrollTop || document.body.scrollTop) > 10 && !scrolled) {
+				setScrolled(true);
+			}
+			if ((document.documentElement.scrollTop || document.body.scrollTop) === 0 && scrolled) {
+				setScrolled(false);
+			}
+		};
+	}, [scrolled]);
+
 	return (
 		<header>
-			<nav className={`${bgColor} dark:bg-gray-900 w-full md:static md:text-sm ${state ? 'relative z-20' : ''}`}>
+			<nav className={`${bgColor} dark:bg-gray-900 w-full static md:text-sm ${scrolled ? 'fixed z-20' : ''}`}>
 				<div className="custom-screen relative items-center mx-auto md:flex">
 					<div className="flex items-center justify-between py-3 md:py-5 md:block">
 						<Link href="/" aria-label="Logo">
 							<Brand className={`dark:text-white ${brandColor}`} />
 						</Link>
 						<div className="flex gap-x-3 items-center md:hidden">
-							<DarkModeHandler className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
-							<LocaleToggle className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
+							<DarkModeHandler className={`dark:text-sky-500 bg-transparent ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
+							<LocaleToggle className={`dark:text-sky-500 bg-transparent ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
 							<button
 								ref={menuBtnEl}
 								type="button"
 								aria-label="Open the menu"
-								className={`p-2 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 ${navMenuBtnColor}`}
+								className={`p-2 rounded-lg bg-transparent dark:text-gray-400 dark:hover:bg-gray-800 ${navMenuBtnColor}`}
 								onClick={() => setState(!state)}
 							>
 								{
@@ -96,7 +108,7 @@ const Navbar = (props) => {
 							</button>
 						</div>
 					</div>
-					<div className={`${bgColor} dark:bg-gray-900 flex-1 md:py-0 md:block md:static md:z-0 ${state ? 'absolute z-20 inset-x-0 px-4 py-6 w-full' : 'hidden'}`}>
+					<div className={`${bgColor} dark:bg-gray-900 flex-1 md:py-0 md:block md:static md:z-0 ${state ? 'absolute z-20 inset-x-0 p-4 w-full' : 'hidden'}`}>
 						<ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:font-medium">
 							{
 								navigation.map((item, idx) => {
@@ -105,7 +117,7 @@ const Navbar = (props) => {
 											<Link
 												href={item.href}
 												className="block"
-												scroll={false}
+												// scroll={false}
 											>
 												{item.name}
 											</Link>
@@ -117,10 +129,10 @@ const Navbar = (props) => {
 								<span className={`${addColor('bg-gray-300', 'bg-gray-800')} dark:bg-gray-700 hidden w-px h-5 md:block`} />
 							</li>
 							<li className="hidden md:block">
-								<DarkModeHandler className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
+								<DarkModeHandler className={`dark:text-sky-500 bg-transparent ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
 							</li>
 							<li className="hidden md:block">
-								<LocaleToggle className={`dark:text-sky-500 ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
+								<LocaleToggle className={`dark:text-sky-500 bg-transparent ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
 							</li>
 							<li>
 								<NavLink

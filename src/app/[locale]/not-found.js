@@ -16,7 +16,7 @@ import React from 'react';
 
 import { Button } from 'antd';
 
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import { useTranslations } from 'next-intl';
 
 const propTypes = {

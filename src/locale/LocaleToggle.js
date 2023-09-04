@@ -43,8 +43,8 @@ const LocaleToggle = (props) => {
 				})),
 			}}
 		>
-			<div className="btn" role="button" tabIndex={0}>
-				<HiOutlineLanguage className={'h-5 w-5 ' + className} />
+			<div className={'btn p-2  rounded-lg dark:text-sky-500 dark:hover:bg-gray-800 ' + className} role="button" tabIndex={0}>
+				<HiOutlineLanguage className="text-lg" />
 			</div>
 		</Dropdown>
 	);

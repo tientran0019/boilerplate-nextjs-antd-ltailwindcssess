@@ -42,7 +42,7 @@ const Newsletter = (props) => {
 						type="email"
 						required
 						placeholder="Enter your email"
-						className="w-full pl-12 pr-3 bg-white dark:bg-gray-800 dark:focus:bg-gray-700 dark:text-gray-300 focus:border-gray-800"
+						className="w-full pr-3 bg-white dark:bg-gray-800 dark:focus:bg-gray-700 dark:text-gray-300 focus:border-gray-800"
 					/>
 				</div>
 				<Button className="block w-auto" type="primary">

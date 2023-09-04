@@ -6,7 +6,6 @@
 * Created: 2023-07-16 22:43:13
 *------------------------------------------------------- */
 
-import 'antd/dist/reset.css';
 import 'src/theme/globals.css';
 
 // import React from 'react';

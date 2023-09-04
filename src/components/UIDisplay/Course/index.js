@@ -16,7 +16,7 @@ import React from 'react';
 
 import lessonsExamples from 'src/lessonExamples/lessons.json';
 
-import Link from 'next/link';
+import Link from 'next-intl/link';
 
 import SectionWrapper from 'src/components/UIDisplay/SectionWrapper';
 

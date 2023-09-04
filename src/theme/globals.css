@@ -1,8 +1,13 @@
+@import 'antd/dist/reset.css';
 @import './index.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scroll-smooth {
+	scroll-behavior: smooth !important;
+}
 
 .custom-screen {
 	@apply max-w-screen-xl mx-auto px-4 md:px-8;
@@ -13,6 +18,7 @@
 .plyr {
 	border-radius: 8px;
 }
+
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
