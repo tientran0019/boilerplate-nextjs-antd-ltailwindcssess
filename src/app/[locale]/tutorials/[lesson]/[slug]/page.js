@@ -19,7 +19,9 @@ import { notFound } from 'next/navigation';
 
 import lessons from 'src/lessonExamples/lessons.json';
 
-import LessonPage from './LessonPage';
+import { getMetadataDefault } from 'src/constants/metadata';
+
+import LessonPage from './_components/LessonPage';
 
 // import classes from './style.module.scss
 
@@ -38,6 +40,34 @@ async function getServerSideLessons(slug) {
 	// Get the lesson based on the slug and pass the data to props
 	const lessonData = lessons.find((item) => item.slug === slug);
 	return lessonData;
+}
+
+export async function generateMetadata(props) {
+	const { params: { slug, locale } = {} } = props;
+
+	const lessonData = await getServerSideLessons(slug);
+
+	return getMetadataDefault({
+		title: lessonData?.title,
+		description: lessonData?.description,
+		locale,
+		openGraph: {
+			url: '/tutorials/cs50/' + lessonData.slug,
+			images: [
+				{
+					url: lessonData?.thumbnail,
+					width: 800,
+					height: 600,
+				},
+				{
+					url: lessonData?.thumbnail,
+					width: 1800,
+					height: 1600,
+					alt: lessonData?.slug,
+				},
+			],
+		},
+	});
 }
 
 const Lesson = async (props) => {

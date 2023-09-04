@@ -9,7 +9,7 @@
 * Last updated by: Tien Tran
 *------------------------------------------------------- */
 
-'use client';
+// 'use client';
 
 import React from 'react';
 // import PropTypes from 'prop-types';
@@ -20,7 +20,18 @@ import SectionWrapper from 'src/components/UIDisplay/SectionWrapper';
 import LessonCardList from 'src/components/UIDisplay/Course/LessonCard/LessonCardList';
 import lessonsExamples from 'src/lessonExamples/lessons.json';
 
-// import classes from './style.module.scss
+import { getMetadata } from 'src/constants/metadata';
+
+export async function generateMetadata(props) {
+	const { params: { locale } = {} } = props;
+
+	const meta = await getMetadata({
+		locale,
+		namespace: 'LessonsPage.Metadata',
+	});
+
+	return meta;
+}
 
 const propTypes = {
 	// classes: PropTypes.object.isRequired,
@@ -31,8 +42,6 @@ const Tutorial = (props) => {
 
 	return (
 		<>
-			<title>Mastering computer science fundamentals - IO Academy</title>
-
 			<GradientWrapper>
 				<section>
 					<div className="custom-screen text-gray-600 sm:text-center">
@@ -49,14 +58,14 @@ const Tutorial = (props) => {
 								<NavLink
 									href="/#pricing"
 									className="block text-white bg-sky-500 hover:bg-sky-600 active:bg-sky-700"
-									scroll={false}
+									// scroll={false}
 								>
 									Get full access
 								</NavLink>
 								<NavLink
 									href="#lessons"
 									className="block text-gray-100 bg-gray-700 hover:bg-gray-800 mt-3 sm:mt-0"
-									scroll={false}
+									// scroll={false}
 								>
 									Browse lessons
 								</NavLink>

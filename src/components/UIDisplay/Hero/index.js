@@ -49,14 +49,14 @@ const Hero = (props) => {
 							<NavLink
 								href="#pricing"
 								className="block text-white bg-sky-500 hover:bg-sky-600 active:bg-sky-700"
-								scroll={false}
+								// scroll={false}
 							>
 								Get started
 							</NavLink>
 							<NavLink
 								href="#cta"
 								className="block text-gray-100 bg-gray-700 hover:bg-gray-800 mt-3 sm:mt-0"
-								scroll={false}
+								// scroll={false}
 							>
 								Learn more
 							</NavLink>

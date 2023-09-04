@@ -32,9 +32,6 @@ const LessonPage = (props) => {
 
 	return (
 		<>
-			{/* <title>{lessonData?.title}</title>
-			<meta name="description" content="" /> */}
-
 			<div className="mt-16 lg:mt-20">
 				<div className="mx-auto lg:max-w-screen-xl lg:px-8">
 					<VideoPlayer

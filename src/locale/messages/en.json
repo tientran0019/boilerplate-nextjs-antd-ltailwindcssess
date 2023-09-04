@@ -1,14 +1,7 @@
 {
 	"Metadata": {
 		"title": "Next.js Boilerplate",
-		"desc": "A boilerplate for Reactjs app using nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
-	},
-	"nav": {
-		"home": "Home"
-	},
-	"theme": {
-		"light": "light",
-		"dark": "dark"
+		"description": "A boilerplate for Reactjs app using nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
 	},
 	"ErrorPage": {
 		"title": "Something went wrong!",
@@ -24,6 +17,25 @@
 	},
 	"LandingPage": {
 		"Hero": {
+			"title": "Mastering computer science fundamentals",
+			"text": "The IO Academy is an online learning platform that provides interactive courses and projects in Computer Science to high schoolers and adults of all backgrounds."
+		}
+	},
+	"LoginPage": {
+		"Metadata": {
+			"title": "Login"
+		},
+		"Content": {
+			"title": "Mastering computer science fundamentals",
+			"text": "The IO Academy is an online learning platform that provides interactive courses and projects in Computer Science to high schoolers and adults of all backgrounds."
+		}
+	},
+	"LessonsPage": {
+		"Metadata": {
+			"title": "Lessons",
+			"description": "With our computer science course IO Academy gives you the knowledge and confidence you need to excel in software engineering, and more."
+		},
+		"Content": {
 			"title": "Mastering computer science fundamentals",
 			"text": "The IO Academy is an online learning platform that provides interactive courses and projects in Computer Science to high schoolers and adults of all backgrounds."
 		}

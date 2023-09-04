@@ -1,14 +1,7 @@
 {
 	"Metadata": {
-		"title": "Next.js Bản Mẫu",
-		"desc": "Một bản mãu cho Reactjs app sử dụng nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
-	},
-	"nav": {
-		"home": "Trang chủ"
-	},
-	"theme": {
-		"light": "Sáng",
-		"dark": "Tối"
+		"title": "Next.js Bản mẫu",
+		"description": "Một bản mẫu dành cho Reactjs app sử dụng nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
 	},
 	"ErrorPage": {
 		"title": "Đã xảy ra lỗi!",
@@ -26,6 +19,25 @@
 		"Hero": {
 			"title": "Nắm vững các nguyên tắc cơ bản của khoa học máy tính",
 			"text": "Học viện IO là một nền tảng học tập trực tuyến cung cấp các khóa học và dự án tương tác về Khoa học Máy tính cho học sinh trung học và người lớn thuộc mọi thành phần."
+		}
+	},
+	"LoginPage": {
+		"Metadata": {
+			"title": "Đăng nhập"
+		},
+		"Content": {
+			"title": "Nắm vững các nguyên tắc cơ bản của khoa học máy tính",
+			"text": "Học viện IO là một nền tảng học tập trực tuyến cung cấp các khóa học và dự án tương tác về Khoa học Máy tính cho học sinh trung học và người lớn thuộc mọi thành phần."
+		}
+	},
+	"LessonsPage": {
+		"Metadata": {
+			"title": "Bài Học",
+			"description": "Với khóa học khoa học máy tính của chúng tôi, Học viện IO mang đến cho bạn kiến thức và sự tự tin cần thiết để bạn vượt trội trong lĩnh vực công nghệ phần mềm và hơn thế nữa."
+		},
+		"Content": {
+			"title": "Mastering computer science fundamentals",
+			"text": "The IO Academy is an online learning platform that provides interactive courses and projects in Computer Science to high schoolers and adults of all backgrounds."
 		}
 	}
 }

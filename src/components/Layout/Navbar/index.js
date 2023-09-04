@@ -78,7 +78,7 @@ const Navbar = (props) => {
 
 	return (
 		<header>
-			<nav className={`${bgColor} dark:bg-gray-900 w-full static md:text-sm ${scrolled ? 'fixed z-20' : ''}`}>
+			<nav className={`${bgColor} dark:bg-gray-900 w-full static md:text-sm ${scrolled ? 'fixed top-0 z-20' : ''}`}>
 				<div className="custom-screen relative items-center mx-auto md:flex">
 					<div className="flex items-center justify-between py-3 md:py-5 md:block">
 						<Link href="/" aria-label="Logo">

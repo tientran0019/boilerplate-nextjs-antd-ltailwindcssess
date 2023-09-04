@@ -31,7 +31,7 @@ const withBlockMobile = (Component, options = {}) => {
 
 		React.useEffect(() => {
 			if (mobile) {
-				window.location.replace('family-wills://');
+				window.location.replace('boilerplate://');
 			}
 		}, [mobile, router]);
 
@@ -40,7 +40,7 @@ const withBlockMobile = (Component, options = {}) => {
 		}
 		return (
 			<div className="d-flex flex-column align-items-center justify-content-center text-center" style={{ height: '100vh' }}>
-				<img src="/icons/192x192.png" alt="logo" width={100} />
+				<img src="/icons/icon.png" alt="logo" width={100} />
 				<span className="text-center mt-2">Connecting...</span>
 				{
 					mobile &&
@@ -49,7 +49,7 @@ const withBlockMobile = (Component, options = {}) => {
 							size="small"
 							type="primary"
 							onClick={() => {
-								window.location.replace('family-wills://');
+								window.location.replace('boilerplate://');
 							}}
 							block
 						>
