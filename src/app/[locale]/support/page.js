@@ -17,7 +17,7 @@ const propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-const Home = (props) => {
+const Support = (props) => {
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between p-24">
 			<div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -130,6 +130,6 @@ const Home = (props) => {
 	);
 };
 
-Home.propTypes = propTypes;
+Support.propTypes = propTypes;
 
-export default Home;
+export default Support;
