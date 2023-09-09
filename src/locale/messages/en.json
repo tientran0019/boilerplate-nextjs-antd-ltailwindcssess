@@ -1,7 +1,7 @@
 {
 	"Metadata": {
 		"title": "Next.js Boilerplate",
-		"description": "A boilerplate for Reactjs app using nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
+		"description": "A boilerplate for Reactjs app using nextjs, next-intl, zustand, antd, tailwindcss"
 	},
 	"ErrorPage": {
 		"title": "Something went wrong!",

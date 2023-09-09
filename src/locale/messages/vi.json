@@ -1,7 +1,7 @@
 {
 	"Metadata": {
 		"title": "Next.js Bản mẫu",
-		"description": "Một bản mẫu dành cho Reactjs app sử dụng nextjs, next-intl, redux, redux-thunk, antd, tailwindcss"
+		"description": "Một bản mẫu dành cho Reactjs app sử dụng nextjs, next-intl, zustand, antd, tailwindcss"
 	},
 	"ErrorPage": {
 		"title": "Đã xảy ra lỗi!",

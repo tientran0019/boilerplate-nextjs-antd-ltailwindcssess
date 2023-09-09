@@ -7,7 +7,7 @@
 * Created: 2021-09-28 22:42:09
 *------------------------------------------------------- */
 
-import cookie from 'react-cookies';
+import { cookies } from 'next/headers';
 
 const mandatory = () => {
 	throw new Error('Storage Missing parameter!');
@@ -16,9 +16,10 @@ const mandatory = () => {
 const configs = {
 	path: '/',
 	maxAge: 30 * 24 * 60 * 60,
-	secure: process.env.NODE_ENV === 'production',
+	secure: process.env.APP_ENV === 'production',
 	// domain: '.allsubdomains.com',
 	sameSite: 'strict',
+	httpOnly: true,
 };
 
 export default class Storage {
@@ -36,7 +37,7 @@ export default class Storage {
 	}
 
 	set value(value) {
-		cookie.save(
+		cookies().set(
 			this.#name,
 			value,
 			{
@@ -47,16 +48,16 @@ export default class Storage {
 	}
 
 	get value() {
-		return cookie.load(this.#name);
+		return cookies().get(this.#name);
 	}
 
 	// eslint-disable-next-line class-methods-use-this
 	get allCookies() {
-		return cookie.loadAll();
+		return cookies().getAll();
 	}
 
 	destroy = (next = f => f) => {
-		cookie.remove(
+		cookies().delete(
 			this.#name,
 			{
 				...configs,

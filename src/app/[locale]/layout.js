@@ -12,12 +12,12 @@
 import Provider from 'src/provider';
 import RootLayout from 'src/components/Layout/MainLayout';
 
-import { languages } from 'src/locale';
+import { LANGUAGES } from 'src/locale';
 
 import { getMetadata } from 'src/constants/metadata';
 
 export async function generateStaticParams() {
-	return Object.values(languages).map((el) => {
+	return Object.values(LANGUAGES).map((el) => {
 		return { locale: el.locale };
 	});
 }

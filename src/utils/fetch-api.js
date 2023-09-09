@@ -3,27 +3,24 @@
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
 /* --------------------------------------------------------
-*
-* Author Tien Tran
+* Author Trần Đức Tiến
 * Email tientran0019@gmail.com
 * Phone 0972970075
 *
-* Created: 2021-09-28 22:42:09
+* Created: 2020-03-23 16:51:21
 *------------------------------------------------------- */
 
-// import merge from 'lodash/merge';
-// import queryString from 'query-string';
-import { actionLogout } from 'src/redux/actions/auth';
-
-import axios from 'axios';
-
+import merge from 'lodash/merge';
+import queryString from 'query-string';
 import { notification } from 'antd';
+import { getServerSession } from 'next-auth';
+import { getSession } from 'next-auth/react';
 
-import Router from 'next/navigation';
+import { authOptions } from 'src/auth';
 
 import CONSTANTS from 'src/constants/urls';
 
-import AuthStorage from './auth-storage';
+// import AuthStorage from './auth-storage';
 
 const mandatory = () => {
 	return Promise.reject(new Error('Fetch API Missing parameter!'));
@@ -31,139 +28,102 @@ const mandatory = () => {
 
 const { API_URL } = CONSTANTS;
 
-const axiosInstance = axios.create({
-	baseURL: API_URL,
-	timeout: 300000,
-	headers: {
-		'Content-Type': 'application/json',
-	},
-});
+const fetchApi = async ({ url, options, payload = {} } = mandatory(), cb = f => f) => {
+	try {
+		const defaultOptions = {
+			method: 'GET',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+		};
 
-axiosInstance.defaults.timeout = 300000;
+		const opts = merge(defaultOptions, options);
 
-export const setupInterceptors = (store) => {
-	axiosInstance.interceptors.request.use(
-		(config) => {
-			// set token
-			if (AuthStorage.accessToken) {
-				// eslint-disable-next-line no-param-reassign
-				config.headers.Authorization = 'Bearer ' + AuthStorage.accessToken;
-			}
-			return config;
-		},
-		(error) => {
-			return Promise.reject(error);
-		},
-	);
-	const { dispatch } = store;
-	axiosInstance.interceptors.response.use(
-		(res) => {
-			return res;
-		},
-		async (err) => {
-			const originalConfig = err.config;
+		const session = typeof window === 'undefined' ? await getServerSession(authOptions) : await getSession();
 
-			if (originalConfig.url !== '/users/logout' && err.response && AuthStorage.refreshToken) {
-				// Access Token was expired
-				if (err.response.status === 401 && !originalConfig._retry) {
-					originalConfig._retry = true;
+		console.log('DEV ~ file: fetch-api.js:43 ~ fetchApi ~ session:', session);
 
-					try {
-						const rs = await axios.post(API_URL + '/users/refresh-token', {
-							refreshToken: AuthStorage.refreshToken,
-							timeout: 300000,
-						});
+		// set token
+		if (session?.accessToken) {
+			opts.headers.Authorization = `Bearer ${session?.accessToken}`;
+		}
 
-						const { accessToken } = rs.data;
+		let uri = API_URL + url;
 
-						AuthStorage.value = {
-							...AuthStorage.value,
-							accessToken,
-						};
+		if (payload && Object.keys(payload).length > 0) {
+			if (opts && opts.method === 'GET') {
+				uri = queryString.stringifyUrl({ url: uri, query: payload });
+			} else {
+				if (opts.headers['Content-Type'] === 'multipart/form-data') {
+					delete opts.headers['Content-Type'];
 
-						return axiosInstance(originalConfig);
-					} catch (_error) {
-						const { response } = _error;
-
-						if (response?.data?.status === 401 || response?.data?.code === 'INVALID_REFRESH_TOKEN') {
-							await dispatch(await actionLogout(() => {
-								if (process.browser) {
-									Router.push('/login');
-								}
-							}));
+					const formData = new FormData();
+					Object.entries(payload).forEach(([key, val]) => {
+						if (val) {
+							if (key === 'files') {
+								val.forEach((file) => {
+									formData.append(key, file);
+								});
+							} else {
+								formData.append(key, val);
+							}
 						}
+					});
 
-						return Promise.reject(response?.data || _error);
-					}
+					opts.body = formData;
+				} else {
+					opts.body = JSON.stringify(payload);
 				}
 			}
+		}
 
-			return Promise.reject(err?.response?.data || err);
-		},
-	);
-};
-
-const fetchApi = async ({ url, options = { headers: {}, method: 'GET' }, payload = {}, dispatch = f => f } = mandatory(), cb = f => f) => {
-	const { method = 'GET', headers = {} } = options;
-
-	try {
-		if (process.env.NODE_ENV === 'development') {
+		if (process.env.APP_ENV === 'development') {
 			console.log('------');
-			console.log('Call API: url, options, payload', url, options, payload);
+			console.log('Call API: url, options, payload', uri, opts, payload);
 		}
 
-		if (headers && Object.keys(headers).length > 0) {
-			axiosInstance.defaults.headers = {
-				...axiosInstance.defaults.headers,
-				...headers,
-			};
-		} else {
-			axiosInstance.defaults.headers = {
-				'Content-Type': 'application/json',
-			};
-		}
+		const response = await fetch(uri, opts);
 
-		const response = await axiosInstance?.[method?.toLowerCase() || 'get']?.(url, payload);
-
-		if (process.env.NODE_ENV === 'development') {
+		if (process.env.APP_ENV === 'development') {
 			console.log('------');
 		}
 
-		if (response.status === 204 || response.statusText === 'No Content') {
+		if (response.ok && (response.status === 204 || response.statusText === 'No Content')) {
 			cb(null, {});
 			return {};
 		}
 
-		if (response.status !== 200) {
-			throw response;
+		const data = await response.json();
+
+		if (response.status !== 200 || data.statusCode !== 200) {
+			throw data;
 		}
 
-		const { data = {} } = response;
-
-		cb(null, data);
-		return data;
-	} catch (error) {
-		if (process.env.NODE_ENV === 'development') {
-			console.log('Call API Error: ', error);
+		cb(null, data.result || {});
+		return data.result || {};
+	} catch (err) {
+		if (process.env.APP_ENV === 'development') {
+			console.log('Call API Error: ', err);
 		}
 
-		if (process.browser) {
+		if (typeof window !== 'undefined') {
 			notification.error({
 				message: 'Oops!',
-				description: (error?.message || 'Server is not working properly! Please try again later.'),
+				description: err.error?.message || err.message || err.toString(),
 			});
 		}
 
-		// if ((error.status === 403 || error.status === 401) || error.code === 'AUTHORIZATION_REQUIRED') {
-		// 	AuthStorage.destroy();
-		// 	dispatch({ type: 'LOGOUT_SUCCESS' });
-		// 	if (process.browser) {
-		// 		Router.push('/login');
-		// 	}
-		// }
+		if (err.statusCode === 403 || err.statusCode === 401) {
+			// AuthStorage.destroy();
+			// dispatch({ type: 'LOGOUT_SUCCESS' });
+			if (typeof window !== 'undefined') {
+				// Router.replace('/forbidden');
+			}
+		}
 
-		cb(error);
-		throw error;
+		cb(err);
+		throw err;
 	}
 };
 

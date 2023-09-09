@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import { ConfigProvider, theme } from 'antd';
 import { ThemeProvider as NextThemeProvider, useTheme } from 'next-themes';
 
-import { defaultLocale, languages } from 'src/locale';
+import { DEFAULT_LOCALE, LANGUAGES } from 'src/locale';
 
 import { AntdProvider } from './AntdProvider';
 
@@ -29,7 +29,7 @@ export const AntdConfigProvider = ({ children, locale }) => {
 
 	return (
 		<ConfigProvider
-			locale={languages[locale ?? defaultLocale].antd}
+			locale={LANGUAGES[locale ?? DEFAULT_LOCALE].antd}
 			theme={{
 				algorithm: nowTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
 				...customThemes,

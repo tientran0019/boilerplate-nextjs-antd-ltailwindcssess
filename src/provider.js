@@ -14,21 +14,24 @@ import { Inter } from 'next/font/google';
 
 import ThemeProvider from 'src/theme/ThemeProvider';
 import LocaleProvider from 'src/locale/LocaleProvider';
+import AuthProvider from 'src/auth/AuthProvider';
 
-import { defaultLocale } from 'src/locale';
+import { DEFAULT_LOCALE } from 'src/locale';
 
 const inter = Inter({ subsets: ['latin'] });
 
 // eslint-disable-next-line react/function-component-definition
 export default function Provider(props) {
-	const { children, locale = defaultLocale } = props;
+	const { children, locale = DEFAULT_LOCALE } = props;
 
 	return (
 		<html lang={locale} className="scroll-smooth dark">
 			<body suppressHydrationWarning className={inter.className + ' dark:bg-gray-900'}>
 				<LocaleProvider locale={locale}>
 					<ThemeProvider locale={locale}>
-						{children}
+						<AuthProvider>
+							{children}
+						</AuthProvider>
 					</ThemeProvider>
 				</LocaleProvider>
 			</body>

@@ -17,7 +17,7 @@ const propTypes = {
 
 // export const metadata = {
 // 	title: 'Boilerplate',
-// 	description: 'A boilerplate for Reactjs app using nextjs, redux, redux-thunk, antd, tailwind',
+// 	description: 'A boilerplate for Reactjs app using nextjs, zustand, antd, tailwind',
 // };
 
 const RootLayout = (props) => {

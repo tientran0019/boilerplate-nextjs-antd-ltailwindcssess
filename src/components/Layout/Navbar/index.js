@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* --------------------------------------------------------
 * Author Tien Tran
 * Email tientran0019@gmail.com
@@ -13,14 +14,14 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 // import PropTypes from 'prop-types';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 import Link from 'next-intl/link';
 import { usePathname } from 'next-intl/client';
 import Brand from 'src/components/Layout/Logo';
 import DarkModeHandler from 'src/theme/ThemeToggle';
+import LogoutBtn from 'src/components/Layout/LogoutBtn';
 import LocaleToggle from 'src/locale/LocaleToggle';
-
-import NavLink from './NavLink';
 
 // import classes from './style.module.scss
 
@@ -30,6 +31,8 @@ const propTypes = {
 
 const Navbar = (props) => {
 	// const { } = props;
+	const { data: session } = useSession();
+
 	const menuBtnEl = useRef();
 	const [state, setState] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
@@ -117,7 +120,7 @@ const Navbar = (props) => {
 											<Link
 												href={item.href}
 												className="block"
-												// scroll={false}
+											// scroll={false}
 											>
 												{item.name}
 											</Link>
@@ -134,16 +137,29 @@ const Navbar = (props) => {
 							<li className="hidden md:block">
 								<LocaleToggle className={`dark:text-sky-500 bg-transparent ${addColor('text-blue-600 hover:bg-gray-50', 'text-sky-500 hover:bg-gray-800')}`} />
 							</li>
-							<li>
-								<NavLink
-									href="/login"
-									className="flex items-center justify-center gap-x-1 font-medium text-sm text-white bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full"
-								>
-									Sign in
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-										<path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
-									</svg>
-								</NavLink>
+							<li className="flex gap-2">
+								{
+									session ?
+										<Link
+											href="/dashboard"
+											className="py-2.5 px-4 text-center rounded-lg duration-150 flex items-center justify-center gap-x-1 font-medium text-sm text-white bg-gray-800 hover:bg-gray-700 active:bg-gray-900"
+										>
+											Dashboard
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+												<path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+											</svg>
+										</Link> :
+										<button
+											onClick={signIn}
+											className="py-2.5 px-4 text-center rounded-lg duration-150 flex items-center justify-center gap-x-1 font-medium text-sm text-white bg-gray-800 hover:bg-gray-700 active:bg-gray-900"
+										>
+											Sign in
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+												<path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+											</svg>
+										</button>
+								}
+								<LogoutBtn />
 							</li>
 						</ul>
 					</div>

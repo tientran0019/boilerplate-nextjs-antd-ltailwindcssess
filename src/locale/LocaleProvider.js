@@ -12,11 +12,11 @@
 
 import { NextIntlClientProvider } from 'next-intl';
 
-import { getMessages, defaultLocale } from 'src/locale';
+import { getMessages, DEFAULT_LOCALE } from 'src/locale';
 
 // eslint-disable-next-line react/function-component-definition
 export default async function LocaleProvider(props) {
-	const { children, locale = defaultLocale } = props;
+	const { children, locale = DEFAULT_LOCALE } = props;
 
 	const messages = await getMessages(locale);
 

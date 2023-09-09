@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 
 import { HiOutlineLanguage } from 'react-icons/hi2';
 
-import { languages } from 'src/locale';
+import { LANGUAGES } from 'src/locale';
 
 const propTypes = {
 	className: PropTypes.string,
@@ -33,7 +33,7 @@ const LocaleToggle = (props) => {
 	return (
 		<Dropdown
 			menu={{
-				items: Object.entries(languages).map(([lang, setting]) => ({
+				items: Object.entries(LANGUAGES).map(([lang, setting]) => ({
 					key: lang,
 					label: (
 						<Link href={pathname ?? '/'} locale={lang}>

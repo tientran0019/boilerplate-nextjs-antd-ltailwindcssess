@@ -14,12 +14,12 @@ import merge from 'lodash/merge';
 import get from 'lodash/get';
 
 import URLS from 'src/constants/urls';
-import { getMessages } from 'src/locale';
+import { getMessages, LANGUAGES } from 'src/locale';
 
 export const getMetadataDefault = (data = {}) => {
 	const {
 		title = 'Next.js Boilerplate',
-		description = 'A boilerplate for Reactjs app using nextjs, next-intl, redux, redux-thunk, antd, tailwindcss',
+		description = 'A boilerplate for Reactjs app using nextjs, next-intl, zustand, antd, tailwindcss',
 		locale = 'en',
 		...rest
 	} = data;
@@ -55,7 +55,7 @@ export const getMetadataDefault = (data = {}) => {
 		generator: 'Next.js',
 		applicationName: 'Next.js',
 		referrer: 'origin-when-cross-origin',
-		keywords: ['Next.js', 'React', 'JavaScript', 'boilerplate', 'nextjs', 'next-intl', 'redux', 'redux-thunk', 'antd', 'tailwindcss'],
+		keywords: ['Next.js', 'React', 'JavaScript', 'boilerplate', 'nextjs', 'next-intl', 'zustand', 'antd', 'tailwindcss'],
 		authors: [{ name: 'Tien Tran', url: 'https://github.com/tientran0019' }],
 		colorScheme: '#0ea5e9',
 		creator: 'Tien Tran',
@@ -65,13 +65,9 @@ export const getMetadataDefault = (data = {}) => {
 			address: false,
 			telephone: false,
 		},
-		manifest: URLS.WEB_URL + '/manifest.json',
 		alternates: {
 			canonical: '/',
-			languages: {
-				'en': '/en',
-				'vi': '/vi',
-			},
+			languages: Object.fromEntries(Object.keys(LANGUAGES).map(el => [el, '/' + el])),
 		},
 		lang: locale,
 		openGraph: {
