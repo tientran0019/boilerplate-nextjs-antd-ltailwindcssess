@@ -9,7 +9,9 @@
 * Last updated by: Tien Tran
 *------------------------------------------------------- */
 
-const theme = {
+import merge from 'lodash/merge';
+
+const commonTheme = {
 	token: {
 		colorPrimary: '#0ea5e9',
 		'borderRadius': 8,
@@ -19,4 +21,23 @@ const theme = {
 	},
 };
 
-export default theme;
+const themes = {
+	dark: {
+		token: {
+			'colorBgBase': '#111827',
+			'colorBgContainer': '#202a37',
+			'colorTextBase': 'rgb(249, 250, 251)',
+		},
+	},
+	light: {
+		token: {
+
+		},
+	},
+};
+
+const generateTheme = (name = 'light') => {
+	return merge({}, commonTheme, themes[name]);
+};
+
+export default generateTheme;

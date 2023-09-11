@@ -26,12 +26,7 @@ export const AntdProvider = ({ children }) => {
 
 	useServerInsertedHTML(() => {
 		return (
-			<script
-				id="antd-css"
-				dangerouslySetInnerHTML={{
-					__html: `<script>${extractStyle(cache, true)}</script>`,
-				}}
-			/>
+			<style id="antd" dangerouslySetInnerHTML={{ __html: extractStyle(cache, true) }} />
 		);
 	});
 

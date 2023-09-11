@@ -21,7 +21,7 @@ import { DEFAULT_LOCALE, LANGUAGES } from 'src/locale';
 
 import { AntdProvider } from './AntdProvider';
 
-import customThemes from './custom-themes';
+import generateTheme from './custom-themes';
 
 // eslint-disable-next-line react/prop-types
 export const AntdConfigProvider = ({ children, locale }) => {
@@ -32,7 +32,7 @@ export const AntdConfigProvider = ({ children, locale }) => {
 			locale={LANGUAGES[locale ?? DEFAULT_LOCALE].antd}
 			theme={{
 				algorithm: nowTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
-				...customThemes,
+				...generateTheme(nowTheme),
 			}}
 		>
 			<AntdProvider>{children}</AntdProvider>

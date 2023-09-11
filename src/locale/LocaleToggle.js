@@ -30,6 +30,8 @@ const propTypes = {
 	className: PropTypes.string,
 };
 
+const w = typeof window === 'undefined' ? {} : window;
+
 const LocaleToggle = (props) => {
 	const { className } = props;
 	const locale = useLocale();
@@ -37,7 +39,8 @@ const LocaleToggle = (props) => {
 	const searchParams = useSearchParams();
 
 	const generateHref = React.useCallback((lang) => {
-		const r = (pathname + (searchParams.toString() ? '?' + searchParams.toString() : '') + window.location.hash) ?? '/';
+		// eslint-disable-next-line no-unsafe-optional-chaining
+		const r = (pathname + (searchParams.toString() ? ('?' + searchParams.toString()) : '') + w?.location?.hash) ?? '/';
 
 		const rArray = r.split('/');
 
@@ -47,7 +50,7 @@ const LocaleToggle = (props) => {
 		}
 
 		return '/' + lang + r;
-	}, [pathname, searchParams, window.location.hash]);
+	}, [pathname, searchParams, w?.location?.hash]);
 
 	const menu = React.useMemo(() => {
 		return {
