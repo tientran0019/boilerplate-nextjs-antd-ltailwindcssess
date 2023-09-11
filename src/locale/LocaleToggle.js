@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/function-component-definition */
 /* --------------------------------------------------------
 * Author Tien Tran
@@ -12,11 +13,14 @@
 
 'use client';
 
-import { Dropdown } from 'antd';
-import { usePathname } from 'next-intl/client';
-import Link from 'next-intl/link';
-
+import React from 'react';
 import PropTypes from 'prop-types';
+
+import { Dropdown } from 'antd';
+
+import { useLocale } from 'next-intl';
+import { usePathname } from 'next-intl/client';
+import { useSearchParams } from 'next/navigation';
 
 import { HiOutlineLanguage } from 'react-icons/hi2';
 
@@ -28,20 +32,40 @@ const propTypes = {
 
 const LocaleToggle = (props) => {
 	const { className } = props;
+	const locale = useLocale();
 	const pathname = usePathname();
+	const searchParams = useSearchParams();
+
+	const generateHref = React.useCallback((lang) => {
+		const r = (pathname + (searchParams.toString() ? '?' + searchParams.toString() : '') + window.location.hash) ?? '/';
+
+		const rArray = r.split('/');
+
+		if (rArray?.[1] && Object.keys(LANGUAGES).includes(rArray?.[1])) {
+			const [, , ...url] = rArray;
+			return '/' + lang + '/' + url.join('/');
+		}
+
+		return '/' + lang + r;
+	}, [pathname, searchParams, window.location.hash]);
+
+	const menu = React.useMemo(() => {
+		return {
+			items: Object.entries(LANGUAGES).map(([lang, setting]) => ({
+				key: lang,
+				label: (
+					<a href={generateHref(lang)} locale={lang}>
+						{setting.flag}&nbsp;&nbsp;{setting.name}
+					</a>
+				),
+				disabled: locale === lang,
+			})),
+		};
+	}, [generateHref, locale]);
 
 	return (
 		<Dropdown
-			menu={{
-				items: Object.entries(LANGUAGES).map(([lang, setting]) => ({
-					key: lang,
-					label: (
-						<Link href={pathname ?? '/'} locale={lang}>
-							{setting.flag}&nbsp;&nbsp;{setting.name}
-						</Link>
-					),
-				})),
-			}}
+			menu={menu}
 		>
 			<div className={'btn p-2  rounded-lg dark:text-sky-500 dark:hover:bg-gray-800 ' + className} role="button" tabIndex={0}>
 				<HiOutlineLanguage className="text-lg" />

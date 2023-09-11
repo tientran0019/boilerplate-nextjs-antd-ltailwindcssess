@@ -14,7 +14,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 // import PropTypes from 'prop-types';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 
 import Link from 'next-intl/link';
 import { usePathname } from 'next-intl/client';

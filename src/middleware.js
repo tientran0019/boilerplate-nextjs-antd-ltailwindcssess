@@ -39,7 +39,7 @@ const intlMiddleware = createIntlMiddleware({
 	locales: Object.keys(LANGUAGES),
 
 	// If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-	DEFAULT_LOCALE,
+	defaultLocale: DEFAULT_LOCALE,
 
 	/** The default locale can be used without a prefix (e.g. `/about`). If you prefer to have a prefix for the default locale as well (e.g. `/en/about`), you can switch this option to `always`. */
 	localePrefix: 'never',

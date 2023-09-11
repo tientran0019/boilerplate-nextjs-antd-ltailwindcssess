@@ -28,7 +28,6 @@ const propTypes = {
 
 const Home = (props) => {
 	// const { } = props;
-
 	return (
 		<>
 			<Hero />
