@@ -11,6 +11,7 @@
 
 'use client';
 
+import { useSession } from 'next-auth/react';
 import React from 'react';
 // import PropTypes from 'prop-types';
 
@@ -20,6 +21,8 @@ import Features from 'src/components/UIDisplay/Features';
 import Hero from 'src/components/UIDisplay/Hero';
 import Pricing from 'src/components/UIDisplay/Pricing';
 
+import useAuthStore, { actionGetProfile } from 'src/store/auth';
+
 // import classes from './style.module.scss
 
 const propTypes = {
@@ -28,6 +31,24 @@ const propTypes = {
 
 const Home = (props) => {
 	// const { } = props;
+
+	const session = useSession({
+		required: true,
+		onUnauthenticated() {
+			// The user is not authenticated, handle it here.
+			console.log('=====1', 111);
+		},
+	});
+	console.log('DEV ~ file: Container.js:37 ~ LoginContainer ~ session:', session);
+	const auth = useAuthStore();
+	console.log('DEV ~ file: Container.js:35 ~ LoginContainer ~ auth:', auth);
+
+	React.useEffect(() => {
+		if (session.status === 'authenticated') {
+			actionGetProfile();
+		}
+	}, [session.status]);
+
 	return (
 		<>
 			<Hero />

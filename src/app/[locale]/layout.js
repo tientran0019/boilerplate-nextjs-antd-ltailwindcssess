@@ -10,7 +10,6 @@
 *------------------------------------------------------- */
 
 import Provider from 'src/provider';
-import RootLayout from 'src/components/Layout/MainLayout';
 
 import { LANGUAGES } from 'src/locale';
 
@@ -37,9 +36,7 @@ export default async function LocaleLayout(props) {
 
 	return (
 		<Provider locale={locale}>
-			<RootLayout>
-				{children}
-			</RootLayout>
+			{children}
 		</Provider>
 	);
 }

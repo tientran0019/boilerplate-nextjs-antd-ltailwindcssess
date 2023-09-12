@@ -14,6 +14,8 @@ import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import FacebookProvider from 'next-auth/providers/facebook';
 
+// import jwt from 'jsonwebtoken';
+
 // import fetchApi from 'src/utils/fetch-api';
 import { actionLogin } from 'src/store/auth';
 
@@ -66,10 +68,29 @@ export const authOptions = {
 			clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
 		}),
 	],
+	// jwt: {
+	// 	maxAge: 60 * 60 * 24 * 30,
+	// 	async encode({ secret, token, maxAge }) {
+	// 		console.log('DEV ~ file: index.js:74 ~ encode ~ token:', token);
+	// 		const { accessToken, ...rest } = token;
+	// 		const t = jwt.sign(rest, secret);
+	// 		console.log('DEV ~ file: index.js:76 ~ encode ~ t:', t);
+	// 		return t;
+	// 	},
+	// 	async decode({ secret, token }) {
+	// 		console.log('DEV ~ file: index.js:80 ~ decode ~ token:', token);
+	// 		const payload = jwt.verify(token, secret);
+
+	// 		payload.accessToken = token;
+
+	// 		console.log('DEV ~ file: index.js:82 ~ decode ~ payload:', payload);
+	// 		return payload;
+	// 	},
+	// },
 
 	callbacks: {
 		async signIn({ user, account, profile, email, credentials }) {
-			console.log('DEV ~ file: index.js:59 ~ signIn ~ user, account:', user, account, profile, email, credentials);
+			// console.log('DEV ~ file: index.js:59 ~ signIn ~ user, account:', user, account, profile, email, credentials);
 			// if (account.provider === 'github') {
 			// 	const githubUser = {
 			// 		id: profile.id,
@@ -100,6 +121,10 @@ export const authOptions = {
 		// 	return baseUrl;
 		// },
 
+		// async jwt(props) {
+		// 	console.log('DEV ~ file: index.js:115 ~ jwt ~ props:', props);
+		// 	return props.token;
+		// },
 		// async jwt({ token, user, account, profile, isNewUser }) {
 		// 	if (user) return { ...token, ...user };
 
@@ -122,13 +147,14 @@ export const authOptions = {
 		// },
 
 		async session({ token, session }) {
-			console.log('DEV ~ file: index.js:125 ~ session ~ token, session:', token, session);
+			// console.log('DEV ~ file: index.js:125 ~ session ~ token, session:', token, session);
 			// eslint-disable-next-line no-param-reassign
-			session.user = token.user;
-			// eslint-disable-next-line no-param-reassign
-			session = token;
+			// session.user = token.user;
+			// // eslint-disable-next-line no-param-reassign
+			// session = token;
 
-			// session.accessToken = token.accessToken
+			// eslint-disable-next-line no-param-reassign
+			session.accessToken = token.accessToken;
 			// session.user = getUserFromTheAPIServer(session.accessToken)
 
 			return session;

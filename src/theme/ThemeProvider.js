@@ -14,10 +14,11 @@
 
 import { useEffect, useState } from 'react';
 
-import { ConfigProvider, theme } from 'antd';
+import { ConfigProvider, theme, App } from 'antd';
 import { ThemeProvider as NextThemeProvider, useTheme } from 'next-themes';
 
 import { DEFAULT_LOCALE, LANGUAGES } from 'src/locale';
+import Statics from 'src/components/UIControl/Statics';
 
 import { AntdProvider } from './AntdProvider';
 
@@ -35,7 +36,12 @@ export const AntdConfigProvider = ({ children, locale }) => {
 				...generateTheme(nowTheme),
 			}}
 		>
-			<AntdProvider>{children}</AntdProvider>
+			<AntdProvider>
+				<App>
+					{children}
+					<Statics />
+				</App>
+			</AntdProvider>
 		</ConfigProvider>
 	);
 };
@@ -58,9 +64,9 @@ export default function ThemeProvider(props) {
 	return (
 		<NextThemeProvider
 			attribute="class"
-			defaultTheme="system"
-			enableSystem
-			disableTransitionOnChange
+			defaultTheme="dark"
+			enableSystem={false}
+			// disableTransitionOnChange
 		>
 			<AntdConfigProvider {...props} />
 		</NextThemeProvider>

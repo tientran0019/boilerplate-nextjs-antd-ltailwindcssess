@@ -10,10 +10,17 @@
 *------------------------------------------------------- */
 
 import { NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
 
 export async function GET(req) {
 	// const data = await req.json();
-	console.log('DEV ~ file: route.js:18 ~ GET ~ data:', req);
+	// console.log('DEV ~ file: route.js:18 ~ GET ~ data:', req);
+	const token = await getToken({ req });
+	// console.log('DEV ~ file: route.js:19 ~ GET ~ token:', token);
+
+	if (!token) {
+		return NextResponse.json({ message: 'Access Denied' }, { status: 401 });
+	}
 
 	return NextResponse.json({
 		statusCode: 200,
@@ -25,10 +32,11 @@ export async function GET(req) {
 			email: 'admin@gmail.com',
 			fullName: 'admin',
 			gender: 'male',
-			id: '5aa2b060ccec81437a61ec0f',
 			phone: '123123123',
 			status: 'active',
 			updatedAt: '2019-10-30T01:10:33.400Z',
+			...token,
+			id: token.sub,
 		},
 	});
 }

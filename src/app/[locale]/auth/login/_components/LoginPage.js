@@ -20,9 +20,11 @@ import { Form, Button, Divider, Input } from 'antd';
 import { signIn, useSession } from 'next-auth/react';
 
 import Brand from 'src/components/Layout/Logo';
+import { notification } from 'src/components/UIControl/Statics';
+
 import useAuthStore from 'src/store/auth';
-import { useLocale } from 'next-intl';
 import { AiFillFacebook, AiFillGithub, AiOutlineGoogle } from 'react-icons/ai';
+import { useRouter } from 'next-intl/client';
 
 // import classes from './style.module.scss
 
@@ -32,30 +34,46 @@ const propTypes = {
 
 const LoginContainer = (props) => {
 	const { searchParams: { callbackUrl } = {} } = props;
+
+	// const [api, contextHolder] = notification.useNotification();
+	const router = useRouter();
+
 	// const { } = props;
 	const [loading, setLoading] = React.useState(false);
 	const { data: session, status } = useSession();
 	console.log('DEV ~ file: Container.js:37 ~ LoginContainer ~ session:', session);
-	const locale = useLocale();
-	console.log('DEV ~ file: Container.js:37 ~ LoginContainer ~ locale:', locale);
 	const auth = useAuthStore();
 	console.log('DEV ~ file: Container.js:35 ~ LoginContainer ~ auth:', auth);
 
 	const handleLogin = React.useCallback(async (values) => {
 		try {
 			setLoading(true);
-			await signIn('credentials', {
+			const res = await signIn('credentials', {
 				...values,
-				// redirect: false,
+				redirect: false,
 				callbackUrl,
 			});
+
+			if (res.error) {
+				notification.error({
+					message: 'Oops!',
+					description: res.error,
+				});
+
+				return;
+			}
+
+			router.replace(callbackUrl, {});
+			// router.refresh();
 		} finally {
 			setLoading(false);
 		}
-	}, [callbackUrl]);
+	}, [callbackUrl, router]);
 
 	return (
 		<div className="bg-gray-50 dark:bg-gray-900 w-full min-h-screen flex flex-col items-center justify-center px-4 pt-10 backgroundImage">
+			{/* {contextHolder} */}
+
 			<div
 				className="blur-[138px] absolute inset-0 m-auto max-w-7xl h-[230px]"
 				style={{

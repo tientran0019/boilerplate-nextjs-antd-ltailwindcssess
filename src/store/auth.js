@@ -31,4 +31,14 @@ export const actionLogin = async (payload = {}, next = f => f) => {
 	return res;
 };
 
+export const actionGetProfile = async (next = f => f) => {
+	const res = await fetchApi({
+		url: '/auth/profile',
+	}, next);
+
+	useStore.setState(res);
+
+	return res;
+};
+
 export default useStore;

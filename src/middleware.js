@@ -16,6 +16,8 @@ import { withAuth } from 'next-auth/middleware';
 import { DEFAULT_LOCALE, LANGUAGES } from './locale';
 import PRIVATE_PAGES from './auth/privatePages';
 
+// import jwt from 'jsonwebtoken';
+
 const checkPrivatePage = (path) => {
 	const regexpList = PRIVATE_PAGES?.map((el) => {
 		return pathToRegexp(el, [], {
@@ -53,6 +55,14 @@ const authMiddleware = withAuth(
 		return intlMiddleware(req, res);
 	},
 	{
+		// jwt: {
+		// 	async encode({ secret, token, maxAge }) {
+		// 		return jwt.sign(token, secret);
+		// 	},
+		// 	async decode({ secret, token }) {
+		// 		return jwt.verify(token, secret);
+		// 	},
+		// },
 		callbacks: {
 			authorized: ({ token, req }) => {
 				// return true;

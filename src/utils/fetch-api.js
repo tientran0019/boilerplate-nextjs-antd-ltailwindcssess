@@ -12,9 +12,9 @@
 
 import merge from 'lodash/merge';
 import queryString from 'query-string';
-import { notification } from 'antd';
 import { getServerSession } from 'next-auth';
 import { getSession } from 'next-auth/react';
+import { notification } from 'src/components/UIControl/Statics';
 
 import { authOptions } from 'src/auth';
 

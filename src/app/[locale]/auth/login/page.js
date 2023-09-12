@@ -15,7 +15,7 @@ import React from 'react';
 
 import { getMetadata } from 'src/constants/metadata';
 
-import LoginContainer from './_components/Container';
+import LoginContainer from './_components/LoginPage';
 
 // import classes from './style.module.scss
 

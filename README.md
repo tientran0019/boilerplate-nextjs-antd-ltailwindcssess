@@ -1,5 +1,5 @@
 # Boilerplate nextjs antd tailwindcss
-A boilerplate for Reactjs app using nextjs, zustand, antd, tailwindcss.
+A boilerplate for Reactjs app using nextjs, next-intl, next-auth, zustand, antd, tailwindcss.
 
 View the [Demo](https://boilerplate-nextjs-antd-tailwindcss.vercel.app/)
 
@@ -10,6 +10,8 @@ This boilerplate is updated with:
 - [x] [Nextjs 13x](https://nextjs.org/)
 - [x] [Antd 5x](https://ant.design/)
 - [x] [Tailwind CSS 3x](https://tailwindcss.com/) - SCSS/CSS Module
+- [x] [Next-intl](https://next-intl-docs.vercel.app/)
+- [x] [Next-auth](https://next-auth.js.org/)
 - [x] [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 - [x] [Eslint](https://eslint.org/)
 - [x] The Demo is using the template of [Float UI](https://floatui.com/)
